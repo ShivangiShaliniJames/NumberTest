@@ -1,0 +1,32 @@
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class NumberCheckerTest {
+
+    private NumberChecker numberChecker;
+
+    // Set up method to initialize the object
+    @Before
+    public void setUp() {
+        numberChecker = new NumberChecker();
+    }
+
+    // Test case for checking even numbers
+    @Test
+    public void testIsEven() {
+        assertTrue("4 should be even", numberChecker.isEven(4));
+        assertTrue("0 should be even", numberChecker.isEven(0)); // Edge case
+        assertFalse("5 should not be even", numberChecker.isEven(5));
+        assertFalse("-3 should not be even", numberChecker.isEven(-3)); // Negative odd case
+    }
+
+    // Test case for checking odd numbers
+    @Test
+    public void testIsOdd() {
+        assertTrue("5 should be odd", numberChecker.isOdd(5));
+        assertFalse("4 should not be odd", numberChecker.isOdd(4));
+        assertTrue("-3 should be odd", numberChecker.isOdd(-3)); // Negative odd case
+        assertFalse("0 should not be odd", numberChecker.isOdd(0)); // Edge case
+    }
+}
